@@ -1,0 +1,10 @@
+# Treat all text files as text, normalize line endings to LF in repo
+* text=auto
+
+# Unity YAML and JSON should always use LF
+*.meta text eol=lf
+*.unity text eol=lf
+*.asset text eol=lf
+*.prefab text eol=lf
+*.json text eol=lf
+*.shader text eol=lf
