@@ -16,7 +16,7 @@ public class AppleTree : MonoBehaviour
     public float leftAndRightEdge = 24f;
 
     // Chance that the AppleTree will change directions
-    public float changeDirChance = 0.1f;
+    public float changeDirChance = 0.02f;
 
     // Seconds between Apples instantiations
     public float appleDropDelay = 1f;
@@ -24,6 +24,14 @@ public class AppleTree : MonoBehaviour
     void Start()
     {
         // Start dropping apples
+        Invoke("DropApple", 2f);
+    }
+
+    void DropApple()
+    {
+        GameObject apple = Instantiate<GameObject>(applePrefab);
+        apple.transform.position = transform.position;
+        Invoke("DropApple", appleDropDelay);
     }
 
     void Update()
@@ -42,9 +50,15 @@ public class AppleTree : MonoBehaviour
         {
             speed = -Mathf.Abs(speed); // Move left
         }
-        else if (Random.value < changeDirChance)
+    }
+
+    void FixedUpdate()
+    {
+        // Random direction changes are now time-based due to FixedUpdate()
+        if (Random.value < changeDirChance)
         {
             speed *= -1; // Change direction
+            // 50fps * 0.02chance = (50)(2/100) = 1 turn per sec
         }
     }
 }
