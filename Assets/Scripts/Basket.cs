@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Basket : MonoBehaviour
 {
+    public ScoreCounter scoreCounter;
     void Start()
     {
+        // Find a GameObject named ScoreCounter in the scene hierarchy.
+        GameObject scoreGO = GameObject.Find("ScoreCounter");
 
+        // Get the ScoreCounter (Script) component out of scoreGO
+        scoreCounter = scoreGO.GetComponent<ScoreCounter>();
     }
     void Update()
     {
@@ -34,7 +39,8 @@ public class Basket : MonoBehaviour
 
         if (collidedWith.CompareTag("Apple"))
         {
-            Destroy(collidedWith); 
+            Destroy(collidedWith);
+            scoreCounter.score += 100; //Magic number
         }
     }
 }
