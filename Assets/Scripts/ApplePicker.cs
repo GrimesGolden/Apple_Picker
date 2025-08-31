@@ -17,7 +17,18 @@ public class ApplePicker : MonoBehaviour
             GameObject tBasketGO = Instantiate<GameObject>(basketPrefab);
             Vector3 pos = Vector3.zero;
             pos.y = basketBottomY + (basketSpacingY * i);
-            tBasketGO.transform.position = pos; 
+            tBasketGO.transform.position = pos;
+        }
+    }
+
+    public void AppleMissed()
+    {
+        // Destroy all of the falling Apples
+        GameObject[] appleArray = GameObject.FindGameObjectsWithTag("Apple");
+
+        foreach (GameObject tempGO in appleArray)
+        {
+            Destroy(tempGO); 
         }
     }
 }
