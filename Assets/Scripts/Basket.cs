@@ -6,7 +6,7 @@ public class Basket : MonoBehaviour
 {
     void Start()
     {
-        
+
     }
     void Update()
     {
@@ -24,6 +24,17 @@ public class Basket : MonoBehaviour
         // Move the x position of this basket to the x position of the Mouse.
         Vector3 pos = this.transform.position;
         pos.x = mousePos3D.x;
-        this.transform.position = pos; 
+        this.transform.position = pos;
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        // Find out what hit this basket
+        GameObject collidedWith = coll.gameObject;
+
+        if (collidedWith.CompareTag("Apple"))
+        {
+            Destroy(collidedWith); 
+        }
     }
 }
