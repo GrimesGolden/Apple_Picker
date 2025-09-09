@@ -5,6 +5,7 @@ using UnityEngine;
 public class Apple : MonoBehaviour
 {
     public static float bottomY = -20f;
+    public int points = 100; // Useful for golden apples
 
     void Update()
     {

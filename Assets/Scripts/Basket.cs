@@ -38,10 +38,13 @@ public class Basket : MonoBehaviour
         GameObject collidedWith = coll.gameObject;
 
         if (collidedWith.CompareTag("Apple"))
-        {
+        {   
+            // Get the class component
+            Apple apple = collidedWith.GetComponent<Apple>(); 
             Destroy(collidedWith);
             // Increase the score
-            scoreCounter.score += 100; //Magic number
+            // Use the points value from Apple class.
+            scoreCounter.score += apple.points; 
             HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score);
         }
     }
