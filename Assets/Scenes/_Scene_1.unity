@@ -989,6 +989,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7510964536269164176, guid: 64efef0f3ad61b7418f3945750b28b57,
         type: 3}
+    - target: {fileID: 3230796143043149910, guid: defef8fbe71011b43af54ab8224fb5fd,
+        type: 3}
+      propertyPath: poisonApplePrefab
+      value: 
+      objectReference: {fileID: 7510964536269164176, guid: 9cbbf74799c88194a85dba53ff32f83c,
+        type: 3}
     - target: {fileID: 5270254407673853379, guid: defef8fbe71011b43af54ab8224fb5fd,
         type: 3}
       propertyPath: m_Name

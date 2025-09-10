@@ -36,16 +36,28 @@ public class Basket : MonoBehaviour
     {
         // Find out what hit this basket
         GameObject collidedWith = coll.gameObject;
+        // Get the apple script from it (if possible)
+        Apple apple = collidedWith.GetComponent<Apple>();
 
         if (collidedWith.CompareTag("Apple"))
-        {   
+        {
             // Get the class component
-            Apple apple = collidedWith.GetComponent<Apple>(); 
-            Destroy(collidedWith);
-            // Increase the score
-            // Use the points value from Apple class.
-            scoreCounter.score += apple.points; 
-            HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score);
+            if (apple.isPoison)
+            // If the apple is poison act like an apple was missed. 
+            {
+                // This is a simple way to get the ApplePicker script from the main camera. 
+                ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
+                // Now we can safely call apple missed. 
+                apScript.AppleMissed();
+            }
+            else if (!apple.isPoison)
+            {
+                Destroy(collidedWith);
+                // Increase the score
+                // Use the points value from Apple class.
+                scoreCounter.score += apple.points;
+                HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score);
+            }
         }
     }
 }
