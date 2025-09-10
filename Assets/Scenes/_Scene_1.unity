@@ -647,6 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e314e55cc1acf54eb30e97294b37c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetHighScoreNow: 0
 --- !u!1 &1234892928
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +982,12 @@ PrefabInstance:
       propertyPath: applePrefab
       value: 
       objectReference: {fileID: 7510964536269164176, guid: c673719c4e9e3544e8d58994c6a4e0b4,
+        type: 3}
+    - target: {fileID: 3230796143043149910, guid: defef8fbe71011b43af54ab8224fb5fd,
+        type: 3}
+      propertyPath: goldApplePrefab
+      value: 
+      objectReference: {fileID: 7510964536269164176, guid: 64efef0f3ad61b7418f3945750b28b57,
         type: 3}
     - target: {fileID: 5270254407673853379, guid: defef8fbe71011b43af54ab8224fb5fd,
         type: 3}
