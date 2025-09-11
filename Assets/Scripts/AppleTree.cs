@@ -82,10 +82,6 @@ public class AppleTree : MonoBehaviour
         {
             spriteRenderer.flipX = true;   // Facing left
         }
-
-        // Set animation speed parameter
-        animator.SetFloat("speed", Mathf.Abs(speed));
-
     }
 
     void FixedUpdate()
