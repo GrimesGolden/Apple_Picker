@@ -11,6 +11,10 @@ public class AppleTree : MonoBehaviour
     public GameObject goldApplePrefab;
     public GameObject poisonApplePrefab; 
 
+    // Sprite render and Animator are required components to animate the "apple tree". 
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
+
     // Speed at which the AppleTree moves
     public float speed = 10f;
 
@@ -68,6 +72,20 @@ public class AppleTree : MonoBehaviour
         {
             speed = -Mathf.Abs(speed); // Move left
         }
+
+        // Flip sprite based on movement direction
+        if (speed > 0)
+        {
+            spriteRenderer.flipX = false;  // Facing right
+        }
+        else if (speed < 0)
+        {
+            spriteRenderer.flipX = true;   // Facing left
+        }
+
+        // Set animation speed parameter
+        animator.SetFloat("speed", Mathf.Abs(speed));
+
     }
 
     void FixedUpdate()
