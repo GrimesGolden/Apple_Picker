@@ -43,11 +43,7 @@ public class ApplePicker : MonoBehaviour
         GameObject basketGO = basketList[basketIndex];
         // Remove the Basket from the list and destroy the GameObject
         basketList.RemoveAt(basketIndex);
-
-        //Get the our audio manager class using find object, then use the Play method using the sounds effect string name; 
-        FindObjectOfType<AudioManager>().Play("BasketLost");
-        Debug.Log("BASKET MISSED");
-
+        
         Destroy(basketGO);
         // If there are no Baskets left, restart the game.
         if (basketList.Count == 0)

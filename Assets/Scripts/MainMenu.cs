@@ -5,8 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    void Awake()
     {
+        FindObjectOfType<AudioManager>().Play("BassIntro");
+    }
+    public void PlayGame()
+    {   
+        // Stop the main menu theme and switch to a new one. 
+        FindObjectOfType<AudioManager>().Stop("BassIntro");
+        FindObjectOfType<AudioManager>().Play("ChanceTheme");
+
         // Simply use scene manager to load the next scene in the build sequence.
         // Note: Scenes must be added to build settings. 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

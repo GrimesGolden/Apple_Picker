@@ -16,6 +16,10 @@ public class Apple : MonoBehaviour
             // Destroy it. 
             Destroy(this.gameObject);
 
+            //Get the our audio manager class using find object, then use the Play method using the sounds effect string name; 
+            // Play the associate sound effect. 
+            FindObjectOfType<AudioManager>().Play("BasketLost");
+
             // Get a reference to the ApplePicker component of Main Camera
             ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
             // Call the public AppleMissed() method of apScript

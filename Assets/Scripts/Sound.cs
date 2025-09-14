@@ -12,6 +12,8 @@ public class Sound
     [Range(.1f, 3f)]
     public float pitch;
 
+    public bool loop; 
+
     // Don't show audio source in inspector, because we already named it above. 
     [HideInInspector]
     public AudioSource source;
