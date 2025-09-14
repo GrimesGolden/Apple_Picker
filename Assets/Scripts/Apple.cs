@@ -6,12 +6,11 @@ public class Apple : MonoBehaviour
 {
     public static float bottomY = -20f;
     public int points = 100; // Useful for golden apples
-    public bool isPoison = false; // Useful for poison apples. 
-
+    
     void Update()
     {   
         // If this apple reaches the bottom of the screen and it's not poison. 
-        if (transform.position.y < bottomY && !isPoison)
+        if (transform.position.y < bottomY && gameObject.name != "PoisonApple(Clone)")
         {   
             // Destroy it. 
             Destroy(this.gameObject);

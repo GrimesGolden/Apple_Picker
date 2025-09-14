@@ -43,11 +43,14 @@ public class ApplePicker : MonoBehaviour
         GameObject basketGO = basketList[basketIndex];
         // Remove the Basket from the list and destroy the GameObject
         basketList.RemoveAt(basketIndex);
-        
+
         Destroy(basketGO);
         // If there are no Baskets left, restart the game.
         if (basketList.Count == 0)
-        {
+        {      
+            FindObjectOfType<AudioManager>().Stop("ChanceTheme");
+            FindObjectOfType<AudioManager>().Play("GameOver");
+            FindObjectOfType<AudioManager>().Play("EndTheme");
             SceneManager.LoadScene("_Scene_2"); 
         }
     }

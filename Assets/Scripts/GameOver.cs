@@ -8,6 +8,8 @@ public class GameOver : MonoBehaviour
     public void RestartGame()
     {
         // Load the main game.  
+        FindObjectOfType<AudioManager>().Stop("EndTheme");
+        FindObjectOfType<AudioManager>().Play("ChanceTheme");
         SceneManager.LoadScene("_Scene_1");
     }
 

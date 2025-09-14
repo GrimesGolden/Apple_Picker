@@ -42,19 +42,29 @@ public class Basket : MonoBehaviour
         if (collidedWith.CompareTag("Apple"))
         {
             // Get the class component
-            if (apple.isPoison)
+            if (apple.name == "PoisonApple(Clone)")
             // If the apple is poison act like an apple was missed. 
             {
+                // Play the sound effect.
+                FindObjectOfType<AudioManager>().Play("BugHit");
                 // This is a simple way to get the ApplePicker script from the main camera. 
                 ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
                 // Now we can safely call apple missed. 
                 apScript.AppleMissed();
             }
-            else if (!apple.isPoison)
-            {
+            else if (apple.name == "GoldenApple(Clone)")
+            {   
+                FindObjectOfType<AudioManager>().Play("GemHit");
                 Destroy(collidedWith);
                 // Increase the score
                 // Use the points value from Apple class.
+                scoreCounter.score += apple.points;
+                HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score);
+            }
+            else if (apple.name == "Apple(Clone)")
+            {
+                FindObjectOfType<AudioManager>().Play("AppleHit");
+                Destroy(collidedWith);
                 scoreCounter.score += apple.points;
                 HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score);
             }

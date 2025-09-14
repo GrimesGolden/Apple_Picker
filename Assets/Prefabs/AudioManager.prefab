@@ -73,10 +73,28 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 4e35bfadfaa7079489c0c584e07c5edb, type: 3}
     volume: 1
     pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: EndTheme
+    clip: {fileID: 8300000, guid: 7336f5f2702109343955830a59632746, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: GemHit
     clip: {fileID: 8300000, guid: 7e82803d344a2bc4cb367a7489fcf24d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Success
+    clip: {fileID: 8300000, guid: d1212acf0b767d94bb98d5f3936b8c5b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 8a9537fa3770ee24ebf9942db6a93057, type: 3}
     volume: 1
     pitch: 1
     loop: 0
